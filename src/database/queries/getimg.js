@@ -6,7 +6,7 @@ const getImg = (cb) => {
   };
   connection.query(sql, (err, res) => {
     if (err) cb(err);
-    else cb(null,res.rows);
+    else cb(null, res.rows);
   });
 };
 
