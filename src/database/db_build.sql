@@ -1,7 +1,4 @@
 
-<<<<<<< HEAD
-  
-=======
 DROP TABLE IF EXISTS users, posts, comments, likes CASCADE;
 
 CREATE TABLE users(
@@ -62,4 +59,3 @@ VALUES
   (1, 2);
 
 COMMIT ;
->>>>>>> e75a9347da7fadb8888bb053458692e7786c0d12

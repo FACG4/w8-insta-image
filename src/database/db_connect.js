@@ -1,5 +1,4 @@
 const { Pool } = require('pg');
-<<<<<<< HEAD
 const url = require('url');
 
 require('env2')('./config.env');
@@ -20,18 +19,9 @@ const options = {
   database: params.pathname.split('/')[1],
   max: process.env.DB_MAX_CONNECTIONS || 2,
   user: username,
-  password: password
+  password,
 };
 
 options.ssl = options.host !== 'localhost';
 
 module.exports = new Pool(options);
-=======
-require('env2')('./config.env');
-
-if (!process.env.DATABASE_URL) {
-  throw new Error ('DB url not found ');
-}else {
-  module.exports= new Pool ({connectionString:process.env.DATABASE_URL});
-}
->>>>>>> e75a9347da7fadb8888bb053458692e7786c0d12

@@ -1,15 +1,12 @@
 const connection = require('../db_connect');
 
-const getImg = (image, cb) => {
+const getImg = (cb) => {
   const sql = {
-    text: 'SELECT * FROM ',
-    // values: 
+    text: 'SELECT  pic_url FROM posts ',
   };
   connection.query(sql, (err, res) => {
-    if (err) {
-      return cb(err);
-    }
-    cb(null, res.rows);
+    if (err) cb(err);
+    else cb(null,res.rows);
   });
 };
 
