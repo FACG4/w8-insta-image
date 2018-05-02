@@ -22,6 +22,8 @@
   "homepage": "https://github.com/FACG4/w8-insta-image#readme",
   "devDependencies": {
     "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.11.0",
     "nodemon": "^1.17.3",
     "tap-spec": "^4.1.1",
     "tape": "^4.9.0"
