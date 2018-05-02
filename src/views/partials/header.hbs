@@ -1,3 +1,22 @@
+
+<header class="navbar">
+  <div class="navbar__container">
+    <nav class="navbar__nav" role="navigation">
+      <ul class="navbar__list">
+        <li class="navbar__item">
+          <a class="navbar__link {{#if activePage.home}}navbar__link--active{{/if}}" href="/">Home</a>
+        </li>
+        <li class="navbar__item">
+          <a class="navbar__link {{#if activePage.login}}navbar__link--active{{/if}}" href="/login">login</a>
+        </li>
+        <li class="navbar__item">
+          <a class="navbar__link {{#if activePage.signup}}navbar__link--active{{/if}}" href="/signup">signup</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
  <div class="navbar__container">
       <nav>
         <ul class="navbar__list">
@@ -10,3 +29,4 @@
         </ul>
       </nav>
     </div>
+
