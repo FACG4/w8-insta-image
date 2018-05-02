@@ -1,4 +1,5 @@
 // require the other pages
+const express = require('express');
 
 const express = require('express');
 const path = require('path');
@@ -11,6 +12,11 @@ const viewpic = require('./viewpic')
 const error = require('./error');
 
 
+const router = express.Router();
+const home = require('./home');
+// import home route controller
+
+router.get('/', home.get);
 
 // export your functions
 module.exports = router;

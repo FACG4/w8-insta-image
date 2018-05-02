@@ -3,9 +3,9 @@ const exphbs = require('express-handlebars');
 const path = require('path');
 const favicon = require('serve-favicon');
 const bodyParser = require('body-parser');
-const cookieParser = require('cookie-parser')
+const cookieParser = require('cookie-parser');
 
-const routes = require('./controllers/routes');
+const routes = require('./controllers');
 
 
 const app = express();
@@ -18,13 +18,13 @@ app.engine(
     extname: 'hbs',
     layoutsDir: path.join(__dirname, 'views', 'layouts'),
     partialsDir: path.join(__dirname, 'views', 'partials'),
-    defaultLayout: 'main'
+    defaultLayout: 'main',
   })
 );
 app.use(cookieParser());
 app.use(bodyParser.json());
-app.use(favicon(path.join(__dirname, '..','public','imgs/icon.ico')));
-app.use(express.static(path.join(__dirname, '..','public')));
+app.use(favicon(path.join(__dirname, '..', 'public', 'imgs/icon.ico')));
+app.use(express.static(path.join(__dirname, '..', 'public')));
 app.set('port', process.env.PORT || 3000);
 app.use(routes);
 
