@@ -1,17 +1,38 @@
 <!DOCTYPE html>
+
 <html>
   {{>htmlHead}}
 <body>
 
   {{> header}}
 
+<html lang="en">
+<head>
+{{>head}}
+</head>
+<body>
+
+  <header class="navbar">
+   {{>header}}
+  </header>
+
+
   <main class="main">
   {{{body}}}
   </main>
+
 
   {{> footer}}
 
   <script src="/js/main.js"></script>
   {{#if }}<script src="/js/fruit-fav.js"></script>{{/if}}
+
+  <footer class="footer">
+   {{>footer}}
+  </footer>
+
+  <script src="/js/main.js"></script>
+
+
 </body>
 </html>
