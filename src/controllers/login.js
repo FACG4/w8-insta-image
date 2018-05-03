@@ -17,7 +17,7 @@ exports.post = (req, res) => {
 
         if (err) throw new Error(errr, 'compare');
         if (response === false) {
-          res.send('invalid username or password');
+          res.send('invalid password');
         } else {
           const secret = process.env.SECRET;
           const token = jwt.sign({ userId: data[0].id, userName: data[0].user_name, role: data[0].role }, secret);

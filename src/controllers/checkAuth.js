@@ -10,7 +10,6 @@ module.exports = (req, res, next) => {
         res.render('error');
         next();
       }
-      console.log('decoded', decoded);
       req.userName = decoded.userName;
       req.userId = decoded.userId;
       req.loggedIn = true;

@@ -42,8 +42,8 @@ VALUES
 
 INSERT INTO posts (user_id,pic_url,title,description)
 VALUES
-  (1, './images/pic1.jpg', 'Nice pic', 'This is cool a cool pic  123'),
-  (2, './images/pic2.jpg', 'Nice pic2', 'This is cool a cool pic321');
+  (1, '/images/pic1.jpg', 'Nice pic', 'This is cool a cool pic  123'),
+  (2, '/images/pic2.jpg', 'Nice pic2', 'This is cool a cool pic321');
 
 INSERT INTO comments (user_id,post_id ,comment_content)
 VALUES
