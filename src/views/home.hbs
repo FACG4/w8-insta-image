@@ -1,12 +1,14 @@
 
-  <div>
+  <div >
  
   {{#each data}}
-   <img src={{this.pic_url}}>
+   
+   <a href="/viewpic/{{this.id}}"> <img class="img-lisener" title={{this.title}} src={{this.pic_url}}>
+   </a>
    {{/each}}
 
 
   </div>
-
+<div class="eman" id="eman"></div>
 
 
