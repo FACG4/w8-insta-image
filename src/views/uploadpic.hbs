@@ -1,1 +1,11 @@
-<h1>hello</h1>
+<h2>Upload picture</h1>
+<form action="/upload" method="POST" encType="multipart/form-data">
+  <label for="upload">Upload image</label>
+  <input type="file" id="upload" name="fileUrl">
+  <label for="title">title</label>
+  <input type="text" id="title" name="title">
+  <label for="description">description</label>
+  <input type="text" id="description" name="description">
+  <input type="submit">
+  <p>{{users}}</p>
+</form>

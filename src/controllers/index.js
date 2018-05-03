@@ -1,6 +1,10 @@
 // require the other pages
-const { upload } = require('./uploadpic');
+const { upload, insertPic } = require('./uploadpic');
+const { view } = require('./viewpc');
+const router = require('express').Router();
 
+router.get('/upload', upload);
+router.post('/upload', insertPic);
+router.get('/pic', view);
 
-// export your functions
-module.exports = upload;
+module.exports = router;
