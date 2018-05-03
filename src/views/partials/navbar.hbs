@@ -6,11 +6,20 @@
     <li class="navbar__item">
       <a class="navbar__link" href="/">Home</a>
     </li>
+    {{#if loggedIn}}
+    <li>
+      <a class="navbar__link" href="/">Welcome {{userName}}</a>
+    </li>
+    <li class="navbar__item">
+      <a class="navbar__link" href="/logout">LogOut</a>
+    </li>
+    {{else}}
     <li class="navbar__item">
       <a class="navbar__link" href="/login">Login</a>
     </li>
     <li class="navbar__item">
       <a class="navbar__link" href="/signup">Sign Up</a>
     </li>
+    {{/if}}
   </ul>
 </nav>

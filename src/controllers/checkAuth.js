@@ -1,5 +1,4 @@
 const jwt = require('jsonwebtoken');
-const cookie = require('cookie');
 require('env2')('./config.env');
 
 module.exports = (req, res, next) => {
@@ -15,5 +14,5 @@ module.exports = (req, res, next) => {
       req.loggedIn = true;
     });
   }
-  next()
+  next();
 };

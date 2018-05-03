@@ -1,23 +1,14 @@
 <div >
-
-
-
-
-
   <div >
-
   {{#each data}}
-
    <a href="/singlepic/{{this.id}}"> <img class="img-lisener" title={{this.title}} src={{this.pic_url}}>
    </a>
    {{/each}}
  </div>
-
-{{#if loggedIn}}
-  <div>
-   <a href="/uploadpic"><button type="button">uplode</button></a>
-   {{!-- <input type="text" placeholder="enter path "></input> --}}
-</div>
-{{/if}}
-
+  {{#if loggedIn}}
+    <div>
+    <a href="/upload"><button type="button">uplod picture</button></a>
+    {{!-- <input type="text" placeholder="enter path "></input> --}}
   </div>
+  {{/if}}
+</div>

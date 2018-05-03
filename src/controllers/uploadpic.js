@@ -1,7 +1,11 @@
 const insertimage = require('./../database/queries/insertimage');
 
 exports.upload = (req, res) => {
-  res.render('uploadpic');
+  if (req.loggedIn) {
+    res.render('uploadpic', { loggedIn: req.loggedIn, userName: req.userName });
+  } else {
+    res.redirect('/login');
+  }
 };
 
 exports.insertPic = (req, res) => {
@@ -13,7 +17,6 @@ exports.insertPic = (req, res) => {
   uploadedFile.mv(imgUrl, (err) => {
     if (err) return res.send('err', err);
 
-    //store data in database
     const data = {};
     data.userId = '1';
     data.picUrl = imgUrl;
@@ -22,9 +25,7 @@ exports.insertPic = (req, res) => {
 
     insertimage(data, (err, result) => {
       if (err) throw new Error('insertimage', err);
-      // res.send('file uploaded');
       res.redirect('/');
     });
-
   });
 };
