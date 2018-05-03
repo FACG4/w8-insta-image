@@ -11,7 +11,7 @@ getpicdata(id, (err, data) => {
     res.status(404).render('error')
   }
    console.log(data);
-  res.render('singlepic',{ data})
+  res.render('singlepic',{ data, loggedIn:req.loggedIn})
 
 });
 }

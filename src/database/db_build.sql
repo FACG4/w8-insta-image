@@ -17,12 +17,7 @@ CREATE TABLE posts (
   pic_url VARCHAR UNIQUE ,
   title VARCHAR NOT NULL ,
   description TEXT NOT NULL CHECK (char_length(description)>0),
-<<<<<<< HEAD
-  created_at timestamp NOT NULL
-
-=======
   created_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
->>>>>>> cdb024cb6e14afe28e9191ee41bde16595dcd7ce
 );
 
 CREATE TABLE comments (
@@ -47,14 +42,8 @@ VALUES
 
 INSERT INTO posts (user_id,pic_url,title,description)
 VALUES
-<<<<<<< HEAD
-  (1, '/images/pic1.jpg', 'Nice pic', 'This is cool a cool pic  123','2018-03-22 19:10:25-07' ),
-  (2, '/images/pic2.jpg', 'Nice pic2', 'This is cool a cool pic321','2018-03-22 19:10:25-07' ),
-  (3, '/images/pic3.jpg', 'Nice pic3', 'This is cool a cool pic213','2018-03-22 19:10:25-07' );
-=======
-  (1, './images/pic1.jpg', 'Nice pic', 'This is cool a cool pic  123'),
-  (2, './images/pic2.jpg', 'Nice pic2', 'This is cool a cool pic321');
->>>>>>> cdb024cb6e14afe28e9191ee41bde16595dcd7ce
+  (1, '/images/pic1.jpg', 'Nice pic', 'This is cool a cool pic  123'),
+  (2, '/images/pic2.jpg', 'Nice pic2', 'This is cool a cool pic321');
 
 INSERT INTO comments (user_id,post_id ,comment_content)
 VALUES
