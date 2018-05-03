@@ -1,4 +1,3 @@
-BEGIN;
 
 DROP TABLE IF EXISTS users, posts, comments, likes CASCADE;
 
@@ -59,4 +58,4 @@ VALUES
   (2, 3),
   (1, 2);
 
-COMMIT ;
+COMMIT;

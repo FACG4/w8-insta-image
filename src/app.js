@@ -1,32 +1,43 @@
+// core and local module
 const express = require('express');
 const path = require('path');
+const favicon = require('serve-favicon');
 const exphbs = require('express-handlebars');
-const fileupload = require('express-fileupload');
 const bodyParser = require('body-parser');
+const compression = require('compression');
+// const coimages/pic1.jpgokieSession = require('cookie-session');
+const controllers = require('./controllers/index');
+require('env2')('./config.env');
 
-const controllers = require('./controllers');
-const helpers = require('./views/helpers/index');
+// local modules
+// const helpers = require('./views/helpers/index');
 
 const app = express();
 
-app.set('port', process.env.PORT || 3000);
-app.use(express.static(path.join(__dirname, '..', 'public')));
-app.use(fileupload());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+// app.use(cookieSession({
+//   name: 'session',
+//   keys: [secret],
+//   maxAge: 24 * 60 * 60 * 1000,
+// }));
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
-app.engine(
-  'hbs',
-  exphbs({
-    extname: 'hbs',
-    layoutsDir: path.join(__dirname, 'views', 'layouts'),
-    partialsDir: path.join(__dirname, 'views', 'partials'),
-    defaultLayout: 'main',
-    helpers,
-  }),
-);
+app.engine('hbs', exphbs({
+  extname: 'hbs',
+  layoutsDir: path.join(__dirname, 'views', 'layouts'),
+  partialsDir: path.join(__dirname, 'views', 'partials'),
+  defaultLayout: 'main',
+  // helpers,
+}));
 
+app.disable('x-powered-by');
+app.set('port', process.env.PORT || 3000);
+
+app.use(compression());
+app.use(favicon(path.join(__dirname, '..', 'public', 'favicon.ico')));
+app.use(express.static(path.join(__dirname, '..', 'public')));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(controllers);
+
 module.exports = app;
