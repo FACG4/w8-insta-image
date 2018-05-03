@@ -1,7 +1,7 @@
 const insertimage = require('./../database/queries/insertimage');
 
 exports.upload = (req, res) => {
-  res.render('uploadpic', { users: 'i am awesome' });
+  res.render('uploadpic');
 };
 
 exports.insertPic = (req, res) => {
@@ -9,22 +9,22 @@ exports.insertPic = (req, res) => {
     return res.send('No file were uploaded');
   }
   const uploadedFile = req.files.fileUrl;
-  const imgUrl = './src/database/images/' + Date.now().toString() + '.jpg';
+  const imgUrl = './public/images/' + Date.now().toString() + '.jpg';
   uploadedFile.mv(imgUrl, (err) => {
     if (err) return res.send('err', err);
-    console.log(imgUrl);
+
     //store data in database
     const data = {};
     data.userId = '1';
     data.picUrl = imgUrl;
-    data.title = 'title';
-    data.description = 'dsdfasdf';
-    data.createdAt = '2018-03-22 19:10:25';
+    data.title = req.body.title;
+    data.description = req.body.description;
+
     insertimage(data, (err, result) => {
       if (err) throw new Error('insertimage', err);
-      console.log(result);
-    })
+      // res.send('file uploaded');
+      res.redirect('/');
+    });
 
-    res.send('file uploaded');
   });
 };

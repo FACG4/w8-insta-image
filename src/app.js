@@ -5,6 +5,8 @@ const favicon = require('serve-favicon');
 const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser');
 const compression = require('compression');
+const fileupload = require('express-fileupload');
+const cookieParser = require('cookie-parser');
 // const coimages/pic1.jpgokieSession = require('cookie-session');
 const controllers = require('./controllers/index');
 require('env2')('./config.env');
@@ -19,7 +21,8 @@ const app = express();
 //   keys: [secret],
 //   maxAge: 24 * 60 * 60 * 1000,
 // }));
-
+app.use(cookieParser());
+app.use(fileupload());
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 app.engine('hbs', exphbs({

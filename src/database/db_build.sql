@@ -17,7 +17,7 @@ CREATE TABLE posts (
   pic_url VARCHAR UNIQUE ,
   title VARCHAR NOT NULL ,
   description TEXT NOT NULL CHECK (char_length(description)>0),
-  created_at timestamp NOT NULL
+  created_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE comments (
@@ -40,22 +40,21 @@ VALUES
   ('root987', '1234567895', 'root@gmail.com', 'Root', 'Fruit'),
   ('lion', '1234567895', 'lion@gmail.com', 'Lion', 'Heart');
 
-INSERT INTO posts (user_id,pic_url,title,description,created_at)
+INSERT INTO posts (user_id,pic_url,title,description)
 VALUES
-  (1, './images/pic1.jpg', 'Nice pic', 'This is cool a cool pic  123','2018-03-22 19:10:25-07' ),
-  (2, './images/pic2.jpg', 'Nice pic2', 'This is cool a cool pic321','2018-03-22 19:10:25-07' ),
-  (3, './images/pic3.jpg', 'Nice pic3', 'This is cool a cool pic213','2018-03-22 19:10:25-07' );
+  (1, './images/pic1.jpg', 'Nice pic', 'This is cool a cool pic  123'),
+  (2, './images/pic2.jpg', 'Nice pic2', 'This is cool a cool pic321');
 
 INSERT INTO comments (user_id,post_id ,comment_content)
 VALUES
   (2, 1, 'This is a great picture'),
-  (2, 3, 'This is a great picture'),
+  (2, 2, 'This is a great picture'),
   (1, 2, 'This is a great picture');
 
 INSERT INTO likes (user_id,post_id )
 VALUES
   (2, 1),
-  (2, 3),
+  (2, 2),
   (1, 2);
 
 COMMIT;
