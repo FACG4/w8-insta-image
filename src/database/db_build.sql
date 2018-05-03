@@ -17,9 +17,8 @@ CREATE TABLE posts (
   pic_url VARCHAR UNIQUE ,
   title VARCHAR NOT NULL ,
   description TEXT NOT NULL CHECK (char_length(description)>0),
-  created_at timestamp NOT NULL ,
-  first_name  VARCHAR(50) NOT NULL  REFERENCES users(first_name),
-  last_name VARCHAR(50) NOT NULL  REFERENCES users(last_name)
+  created_at timestamp NOT NULL
+
 );
 
 CREATE TABLE comments (
@@ -60,4 +59,4 @@ VALUES
   (2, 3),
   (1, 2);
 
-COMMIT ;
+COMMIT;

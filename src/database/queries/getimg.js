@@ -5,8 +5,10 @@ const getImg = (cb) => {
     text: 'SELECT  pic_url FROM posts ',
   };
   connection.query(sql, (err, res) => {
+    console.log('res.rows', res.rows[0].pic_url);
+
     if (err) cb(err);
-    else cb(null,res.rows);
+    else cb(null, res.rows);
   });
 };
 
