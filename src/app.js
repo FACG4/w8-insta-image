@@ -5,22 +5,20 @@ const favicon = require('serve-favicon');
 const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser');
 const compression = require('compression');
-const cookieSession = require('cookie-session');
+// const coimages/pic1.jpgokieSession = require('cookie-session');
+const controllers = require('./controllers/index');
 require('env2')('./config.env');
 
-
-const secret = process.env.SECRET;
 // local modules
-const controllers = require('./controllers/index');
 // const helpers = require('./views/helpers/index');
 
 const app = express();
 
-app.use(cookieSession({
-  name: 'session',
-  keys: [secret],
-  maxAge: 24 * 60 * 60 * 1000,
-}));
+// app.use(cookieSession({
+//   name: 'session',
+//   keys: [secret],
+//   maxAge: 24 * 60 * 60 * 1000,
+// }));
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');

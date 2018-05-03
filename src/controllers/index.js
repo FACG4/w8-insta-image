@@ -1,21 +1,20 @@
 // require the other pages
-const express = require('express');
-const path = require('path');
+const router = require('express').Router();
+// const path = require('path');
 
-const router = express.Router();
-
+const home = require('./home');
 const login = require('./login');
 const signup = require('./signup');
+const { upload, insertPic } = require('./uploadpic');
+const { view } = require('./viewpc');
 
+router.get('/', home.get);
+router.get('/upload', upload);
+router.post('/upload', insertPic);
+router.get('/pic', view);
 router.get('/login', login.get);
 router.post('/login', login.post);
 router.get('/signup', signup.get);
 router.post('/signup', signup.post);
 
-const home = require('./home');
-// import home route controller
-
-router.get('/', home.get);
-
-// export your functions
 module.exports = router;
