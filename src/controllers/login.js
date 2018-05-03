@@ -8,22 +8,13 @@ exports.get = (req, res) => {
 
 exports.post = (req, res) => {
   const { username, password } = req.body;
-  // console.log(username);
-  // console.log(req.body);
 
   post.getUserData(username, (err, data) => {
-
-    console.log('lksdjf', data);
     if (!data.length) {
-      console.log('errorororo', err);
       res.send('invalid username');
     } else {
-      console.log('passwordhashed', data[0].password);
       bcrypt.compare(password, data[0].password, (errr, response) => {
-        console.log('compare', response);
-
         if (err) throw new Error(errr, 'compare');
-
         if (response === false) {
           res.send('invalid username or password');
         } else {
