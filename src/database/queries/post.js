@@ -24,10 +24,10 @@ const addUser = (username, email, password, firstName, lastName, cb) => {
 
 const getUserData = (username, cb) => {
   const sql = {
-    text: 'SELECT * FROM users WHERE username = $1',
+    text: 'SELECT * FROM users WHERE user_name = $1',
     values: [username],
   };
-  return connection.query(sql, (err, res) => {
+  connection.query(sql, (err, res) => {
     if (err) {
       cb(err);
     } else {

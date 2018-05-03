@@ -8,7 +8,7 @@ const router = express.Router();
 // import home route controller
 
 router.get('/', home.get);
-router.get('/:singlepic/id', singlepic.get)
+router.get('/singlepic/:id', singlepic.get)
 router.use(error.client);
 router.use(error.server);
 

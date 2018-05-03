@@ -4,15 +4,17 @@ const getpicdata = require('../database/queries/getpicdata');
 
 
 exports.get = (req, res) => {
-const {pic_id} = req.params.id ;
-queries.getpicdata(imgName, (err, data) => {
+const {id} = req.params;
+getpicdata(id, (err, data) => {
+  console.log(id);
   if (err){
     res.status(404).render('error')
   }
-  // console.log(data);
-  res.render('singlepic', data)
+   console.log(data);
+  res.render('singlepic',{ data})
 
-})
+});
+}
 
 
 

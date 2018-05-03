@@ -1,3 +1,8 @@
-<section class="main__container--limited-width">
-  <h1 class="main__title">single pic</h1>
+<section>
+  <h1></h1>
+  {{#each data}}
+<img class="img"  src={{this.pic_url}}>
+<h3>{{this.title}}</h3>
+<p>{{this.description}}</p>
+{{/each}}
 </section>

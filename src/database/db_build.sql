@@ -3,8 +3,8 @@ DROP TABLE IF EXISTS users, posts, comments, likes CASCADE;
 
 CREATE TABLE users(
   id SERIAL PRIMARY KEY,
-  user_name VARCHAR UNIQUE NOT NULL ,
-  password VARCHAR NOT NULL CHECK (char_length(password)>8),
+  user_name VARCHAR UNIQUE NOT NULL,
+  password VARCHAR NOT NULL CHECK(char_length(password)>8),
   role VARCHAR DEFAULT 'user',
   email VARCHAR(30) UNIQUE,
   first_name VARCHAR(50) NOT NULL,
@@ -43,9 +43,9 @@ VALUES
 
 INSERT INTO posts (user_id,pic_url,title,description,created_at)
 VALUES
-  (1, './images/pic1.jpg', 'Nice pic', 'This is cool a cool pic  123','2018-03-22 19:10:25-07' ),
-  (2, './images/pic2.jpg', 'Nice pic2', 'This is cool a cool pic321','2018-03-22 19:10:25-07' ),
-  (3, './images/pic3.jpg', 'Nice pic3', 'This is cool a cool pic213','2018-03-22 19:10:25-07' );
+  (1, '/images/pic1.jpg', 'Nice pic', 'This is cool a cool pic  123','2018-03-22 19:10:25-07' ),
+  (2, '/images/pic2.jpg', 'Nice pic2', 'This is cool a cool pic321','2018-03-22 19:10:25-07' ),
+  (3, '/images/pic3.jpg', 'Nice pic3', 'This is cool a cool pic213','2018-03-22 19:10:25-07' );
 
 INSERT INTO comments (user_id,post_id ,comment_content)
 VALUES
