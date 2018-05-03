@@ -7,7 +7,6 @@ const cookieParser = require('cookie-parser');
 
 const routes = require('./controllers');
 
-
 const app = express();
 
 app.set('views', path.join(__dirname, 'views'));
@@ -23,7 +22,7 @@ app.engine(
 );
 app.use(cookieParser());
 app.use(bodyParser.json());
-app.use(favicon(path.join(__dirname, '..', 'public', 'imgs/icon.ico')));
+// app.use(favicon(path.join(__dirname, '..', 'public', 'imgs/icon.ico')));
 app.use(express.static(path.join(__dirname, '..', 'public')));
 app.set('port', process.env.PORT || 3000);
 app.use(routes);
