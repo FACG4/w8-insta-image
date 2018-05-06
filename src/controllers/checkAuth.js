@@ -6,7 +6,7 @@ module.exports = (req, res, next) => {
   if (cookies.session) {
     jwt.verify(cookies.session, process.env.SECRET, (err, decoded) => {
       if (err) {
-        res.render('error');
+        res.render('error', { err });
         next();
       }
       req.userName = decoded.userName;

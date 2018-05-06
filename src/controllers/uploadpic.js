@@ -18,13 +18,17 @@ exports.insertPic = (req, res) => {
     if (err) return res.send('err', err);
 
     const data = {};
-    data.userId = '1';
+    data.userId = req.userId;
     data.picUrl = imgUrl;
     data.title = req.body.title;
     data.description = req.body.description;
 
-    insertimage(data, (err, result) => {
-      if (err) throw new Error('insertimage', err);
+    insertimage(data, (error, result) => {
+      if (error) {
+        console.log(error);
+
+        return ('insertimage', err);
+      }
       res.redirect('/');
     });
   });
