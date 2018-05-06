@@ -6,8 +6,8 @@ const uploadImage = (data, cb) => {
   console.log(picUrl);
 
   const sql = {
-    text: "INSERT INTO posts (user_id, pic_url, title, description) VALUES($1, $2, $3, $4)",
-    values: [userId, picUrl, title, description]
+    text: 'INSERT INTO posts (user_id, pic_url, title, description) VALUES($1, $2, $3, $4)',
+    values: [userId, `/${picUrl}`, title, description]
   };
   connection.query(sql, (err, res) => {
     if (err) {
@@ -19,4 +19,3 @@ const uploadImage = (data, cb) => {
 };
 
 module.exports = uploadImage;
-
