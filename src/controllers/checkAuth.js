@@ -1,5 +1,4 @@
 const jwt = require('jsonwebtoken');
-const cookie = require('cookie');
 require('env2')('./config.env');
 
 module.exports = (req, res, next) => {
@@ -7,13 +6,16 @@ module.exports = (req, res, next) => {
   if (cookies.session) {
     jwt.verify(cookies.session, process.env.SECRET, (err, decoded) => {
       if (err) {
-        res.render('error');
+        console.log('erdsfsdfr', err);
+
+        res.render('home');
         next();
+      } else {
+        req.userName = decoded.userName;
+        req.userId = decoded.userId;
+        req.loggedIn = true;
       }
-      req.userName = decoded.userName;
-      req.userId = decoded.userId;
-      req.loggedIn = true;
     });
   }
-  next()
+  next();
 };

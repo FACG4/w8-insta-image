@@ -6,20 +6,11 @@ const bodyParser = require('body-parser');
 const compression = require('compression');
 const fileupload = require('express-fileupload');
 const cookieParser = require('cookie-parser');
-// const coimages/pic1.jpgokieSession = require('cookie-session');
 const controllers = require('./controllers/index');
 require('env2')('./config.env');
 
-// local modules
-// const helpers = require('./views/helpers/index');
-
 const app = express();
 
-// app.use(cookieSession({
-//   name: 'session',
-//   keys: [secret],
-//   maxAge: 24 * 60 * 60 * 1000,
-// }));
 app.use(cookieParser());
 app.use(fileupload());
 app.set('views', path.join(__dirname, 'views'));
@@ -29,7 +20,6 @@ app.engine('hbs', exphbs({
   layoutsDir: path.join(__dirname, 'views', 'layouts'),
   partialsDir: path.join(__dirname, 'views', 'partials'),
   defaultLayout: 'main',
-  // helpers,
 }));
 
 app.disable('x-powered-by');

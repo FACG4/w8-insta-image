@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken');
 const post = require('./../database/queries/post');
 
 exports.get = (req, res) => {
-  res.render('login', { activePage: { login: true } });
+  res.render('login', { activePage: { login: true }, msg: req.msg });
 };
 
 exports.post = (req, res) => {
@@ -14,7 +14,6 @@ exports.post = (req, res) => {
       res.send('invalid username');
     } else {
       bcrypt.compare(password, data[0].password, (errr, response) => {
-
         if (err) throw new Error(errr, 'compare');
         if (response === false) {
           res.send('invalid password');

@@ -50,3 +50,9 @@ img {
   border:3px solid #eee ;
   border-radius: 6%;
 }
+
+.flex-column-centered {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

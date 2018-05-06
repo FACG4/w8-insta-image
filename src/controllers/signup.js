@@ -2,7 +2,11 @@ const post = require('./../database/queries/post');
 const bcrypt = require('bcrypt');
 
 exports.get = (req, res) => {
-  res.render('signup', { activePage: { register: true } });
+  if (req.loggedIn) {
+    res.redirect('/');
+  } else {
+    res.render('signup', { activePage: { register: true } });
+  }
 };
 
 exports.post = (req, res) => {
