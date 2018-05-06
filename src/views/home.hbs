@@ -1,4 +1,4 @@
-<div >
+<div class="container">
   <div >
   {{#each data}}
    <a href="/singlepic/{{this.id}}"> <img class="img-lisener" title={{this.title}} src={{this.pic_url}}>
@@ -6,7 +6,7 @@
    {{/each}}
  </div>
   {{#if loggedIn}}
-    <div>
+    <div class="fotos">
     <a href="/upload"><button type="button">uplod picture</button></a>
     {{!-- <input type="text" placeholder="enter path "></input> --}}
   </div>

@@ -1,53 +1,102 @@
+/**
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    contenteditable attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that are clearfixed.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+
+.cf:before,
+.cf:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */
+}
+
+.cf:after {
+  clear: both;
+}
+
+/**
+  * For IE 6/7 only
+  * Include this rule to trigger hasLayout and contain floats.
+  */
+
+.cf {
+  *zoom: 1;
+}
+
 body {
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Ubuntu', sans-serif;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }
-.navbar {
-  padding: 1rem 0;
 
+.container {
+  width: 85%;
+  margin: 0 auto;
+}
+
+.cont-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.navbar {
+  background-color: #ab0b4180;
+}
+
+.navbar__header--green {
+  color: white;
 }
 
 .navbar__container {
   margin: 0 auto;
   padding-left: 10px;
-
 }
-
 
 .navbar__list {
   display: flex;
-  justify-content:space-around;
+  justify-content: flex-end;
   list-style-type: none;
   margin: 0;
-  padding: 20px;
-  background-color: #ab0b4180;
 }
 
 .navbar__link {
-  display: block;
-    width: 60px;
-
-     float: right;
-    padding: 14px;
-    text-decoration: none;
-    font-size: 20px;
-    font-weight: bold;
-    color:black;
-    letter-spacing: 2px;
+  float: right;
+  padding: 14px;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bold;
+  color: black;
+  letter-spacing: 2px;
 }
-
 
 .navbar__link:hover {
-  color:white;
+  color: white;
 }
-.img-lisener{
-  border-radius: 50%;
-  max-width: 200px;
+
+.fotos {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.img-lisener {
+  max-width: 400px;
+  max-height: 400px;
 }
 
 img {
-  max-width:600px;
-  border:3px solid #eee ;
+  max-width: 600px;
+  border: 3px solid #eee;
   border-radius: 6%;
 }
 
@@ -55,4 +104,12 @@ img {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.footer {
+  text-align: center;
+  font-size: 14px;
+  background-color: #ab0b4180;
+  height: 50px;
+  padding-top: 15px;
 }
