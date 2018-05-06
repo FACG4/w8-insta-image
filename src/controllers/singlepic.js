@@ -7,6 +7,7 @@ exports.get = (req, res) => {
     if (err) {
       res.status(404).render('error', { err });
     }
+    console.log('data', data);
     res.render('singlepic', { data, loggedIn: req.loggedIn, userName: req.userName });
   });
 };

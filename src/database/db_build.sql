@@ -40,21 +40,18 @@ VALUES
   ('root987', '1234567895', 'root@gmail.com', 'Root', 'Fruit'),
   ('lion', '1234567895', 'lion@gmail.com', 'Lion', 'Heart');
 
-INSERT INTO posts (user_id,pic_url,title,description)
-VALUES
-  (1, '/images/pic1.jpg', 'Nice pic', 'This is cool a cool pic  123'),
-  (2, '/images/pic2.jpg', 'Nice pic2', 'This is cool a cool pic321');
 
-INSERT INTO comments (user_id,post_id ,comment_content)
-VALUES
-  (2, 1, 'This is a great picture'),
-  (2, 2, 'This is a great picture'),
-  (1, 2, 'This is a great picture');
-
-INSERT INTO likes (user_id,post_id )
-VALUES
-  (2, 1),
-  (2, 2),
-  (1, 2);
+--
+-- INSERT INTO comments (user_id,post_id ,comment_content)
+-- VALUES
+--   (2, 1, 'This is a great picture'),
+--   (2, 2, 'This is a great picture'),
+--   (1, 2, 'This is a great picture');
+--
+-- INSERT INTO likes (user_id,post_id )
+-- VALUES
+--   (2, 1),
+--   (2, 2),
+--   (1, 2);
 
 COMMIT;
