@@ -6,8 +6,6 @@ module.exports = (req, res, next) => {
   if (cookies.session) {
     jwt.verify(cookies.session, process.env.SECRET, (err, decoded) => {
       if (err) {
-        console.log('erdsfsdfr', err);
-
         res.render('home');
         next();
       } else {
