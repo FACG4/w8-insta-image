@@ -1,0 +1,24 @@
+<section>
+
+  {{#each data}}
+<img class="img"  src={{this.pic_url}}>
+<h3>{{this.title}}</h3>
+    <p>{{this.description}}</p>
+{{/each}}
+{{#if loggedIn}}
+{{#each data }}
+      <a href="/deletepic/{{this.id}}">
+<button type="button" name="button">delete</button>
+</a>
+
+      <div class="">
+        <form class="" action="/addcomment/{{this.id}}/{{this.user_id}}" method="post">
+          <textarea name="comment" placeholder="add your comment here"></textarea><br>
+          <!-- <input type="text" name="userName" placeholder="write your name"> -->
+          <input type="submit">
+        </form>
+      </div>
+{{/each}}
+{{/if}}
+
+</section>
